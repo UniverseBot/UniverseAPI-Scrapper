@@ -9,26 +9,26 @@ Full API Implementation inside NodeJS Module
 ## Installation
 npm:
 ```bash
-$ npm install @universeapi/scraper
+$ npm install @mgalacyber/universeapi
 ```
 yarn:
 ```bash
-$ yarn add @universeapi/scraper
+$ yarn add @mgalacyber/universeapi
 ```
 
 ## Simple to Use
 ## CommonJs (CJS) syntax
 ```js
-const UniverseAPI = require("@universeapi/scraper");
+const { universeAPIClient } = require("@mgalacyber/universeapi");
 ```
 ## ECMAScript Modules (ESM) syntax
 ```ts
-import UniverseAPI from "@universeapi/scraper";
+import { universeAPIClient } from "@mgalacyber/universeapi";
 ```
 
 ## Example
 ```js
-const uAPI = new UniverseAPI("API-TOKEN");
+const uAPI = new universeAPIClient("API-TOKEN");
 
 // How to call the API
 uAPI.[version].[features].[category](parameter)
