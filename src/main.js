@@ -13,9 +13,12 @@ class universeAPIClient {
         this.BaseUrl = "https://api.universebot.space";
     };
     async Api() {
-        if (!this.ApiToken) throw new Error("Unknown API TOKEN: Please enter your API token");
-        if (typeof this.ApiToken !== "string") throw new Error("Invalid API TOKEN: Token must be a String");
-        if (!this.ApiToken.startsWith("UniverseAPI.")) throw new Error("Invalid API TOKEN: Token must be have 'UniverseAPI.' tag before token code.");
+        if (!this.ApiToken) {
+            console.error("Unknown API TOKEN: Please enter your API token")
+        };
+        if (typeof this.ApiToken !== "string") {
+            console.error("Invalid API TOKEN: Token must be a String")
+        };
         return new API(this.BaseUrl, { token: this.ApiToken });
     };
 
@@ -74,10 +77,4 @@ class universeAPIClient {
     }
 };
 
-// Check update
-import("update-notifier").then(({ default: updateNotifier }) => {
-    const notifier = updateNotifier({ pkg: require("./package.json") });
-    if (notifier.update) notifier.notify({ boxenOptions: {borderColor: "green"} });
-});
-
-module.exports = universeAPIClient;
+module.exports = {universeAPIClient};

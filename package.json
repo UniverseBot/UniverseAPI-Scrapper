@@ -1,8 +1,8 @@
 {
   "name": "@mgalacyber/universeapi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "UniverseAPI Scraper package endpoint",
-  "main": "./src/main.js",
+  "main": "index.js",
   "typings": "./typings/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
