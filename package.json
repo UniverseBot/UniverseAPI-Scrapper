@@ -15,7 +15,8 @@
     "API",
     "endpoint",
     "rest-api",
-    "scraper"
+    "scraper",
+    "api-scaper"
   ],
   "author": "MGalaCyber",
   "license": "Apache-2.0",

@@ -17,7 +17,7 @@ class API {
 
     setToken(token) {
         this.token = token;
-        // Set ulang header Authorization pada instance axios
+        // Reset the Authorization header on the axios instance
         this.create.defaults.headers.Authorization = this.token ? `Bearer ${this.token}` : "";
     }
 
