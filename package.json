@@ -1,5 +1,5 @@
 {
-  "name": "@mgalacyber/universeapi-scraper",
+  "name": "@mgalacyber/universeapi",
   "version": "1.0.0",
   "description": "UniverseAPI Scraper package endpoint",
   "main": "index.js",
