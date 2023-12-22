@@ -1,8 +1,8 @@
-declare module "@universeapi/scraper" {
+declare module "@mgalacyber/universeapi" {
     export class universeAPIClient {
         constructor(token: string);
 
-        private token: string;
+        // private token: string;
 
         public V1: {
             Creator: {
@@ -16,8 +16,6 @@ declare module "@universeapi/scraper" {
                  * console.log(result); // Display the result of the Flaming operation
                  */
                 Photooxy: {
-                    Flaming: (text: string) => Promise<any>;
-                    ShadowSky: (text: string) => Promise<any>;
                     Flaming: (text: string) => Promise<any>;
                     ShadowSky: (text: string) => Promise<any>;
                     Metallic: (text: string) => Promise<any>;

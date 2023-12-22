@@ -19,16 +19,16 @@ $ yarn add @mgalacyber/universeapi
 ## Simple to Use
 ## CommonJs (CJS) syntax
 ```js
-const UniverseAPI = require("@mgalacyber/universeapi");
+const { universeAPIClient } = require("@mgalacyber/universeapi");
 ```
 ## ECMAScript Modules (ESM) syntax
 ```ts
-import UniverseAPI from "@mgalacyber/universeapi";
+import { universeAPIClient } from "@mgalacyber/universeapi";
 ```
 
 ## Example
 ```js
-const uAPI = new UniverseAPI("API-TOKEN");
+const uAPI = new universeAPIClient("API-TOKEN");
 
 // How to call the API
 uAPI.[version].[features].[category](parameter)

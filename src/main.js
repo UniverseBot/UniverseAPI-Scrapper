@@ -1,9 +1,9 @@
 const { API } = require("./method");
 
 /**
- * @class universeAPIClient
+ * @class universeClient
  */
-class universeAPIClient {
+class universeClient {
 
     /**
      * @param {string} token provider api.universebot.space
@@ -74,4 +74,4 @@ class universeAPIClient {
     }
 };
 
-module.exports = universeAPIClient;
+module.exports = universeClient;
