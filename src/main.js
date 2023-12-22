@@ -1,9 +1,9 @@
 const { API } = require("./method");
 
 /**
- * @class universeClient
+ * @class universeAPIClient
  */
-class universeClient {
+class universeAPIClient {
 
     /**
      * @param {string} token provider api.universebot.space
@@ -74,4 +74,10 @@ class universeClient {
     }
 };
 
-module.exports = universeClient;
+// Check update
+import("update-notifier").then(({ default: updateNotifier }) => {
+    const notifier = updateNotifier({ pkg: require("./package.json") });
+    if (notifier.update) notifier.notify({ boxenOptions: {borderColor: "green"} });
+});
+
+module.exports = universeAPIClient;
