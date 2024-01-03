@@ -1,7 +1,11 @@
 // Check update
 import("update-notifier").then(({ default: updateNotifier }) => {
     const notifier = updateNotifier({ pkg: require("./package.json") });
-    if (notifier.update) notifier.notify({ boxenOptions: {borderColor: "green"} });
+    notifier.check();
+    notifier.notify({ boxenOptions: { borderColor: "green" } });
+
+}).catch((error) => {
+    console.error("Error checking for updates:", error);
 });
 
 // Import api

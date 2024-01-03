@@ -1,11 +1,11 @@
-const axios = require("axios");
 const FormData = require("form-data");
+const Axios = require("axios");
 
 class API {
     constructor(baseURL, options) {
         this.URI = baseURL;
         this.token = options?.token || "";
-        this.create = axios.create({
+        this.create = Axios.create({
             baseURL: this.URI,
             timeout: 60000,
             headers: {
@@ -32,7 +32,12 @@ class API {
 
             return res.data;
         } catch {
-            return { status: 400 };
+            return {
+                status: false,
+                code: 500,
+                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                data: null
+            };
         }
     }
 
@@ -55,10 +60,20 @@ class API {
 
                 return res.data;
             } else {
-                return { status: 400 };
+                return {
+                    status: false,
+                    code: 500,
+                    message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                    data: null
+                };
             }
         } catch {
-            return { status: 400 };
+            return {
+                status: false,
+                code: 500,
+                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                data: null
+            };
         }
     }
 
@@ -71,10 +86,20 @@ class API {
 
                 return res.data;
             } else {
-                return { status: 400 };
+                return {
+                    status: false,
+                    code: 500,
+                    message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                    data: null
+                };
             }
         } catch {
-            return { status: 400 };
+            return {
+                status: false,
+                code: 500,
+                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                data: null
+            };
         }
     }
 
@@ -86,7 +111,12 @@ class API {
 
             return res.data;
         } catch {
-            return { status: 400 };
+            return {
+                status: false,
+                code: 500,
+                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                data: null
+            };
         }
     }
 
@@ -99,10 +129,20 @@ class API {
 
                 return res.data;
             } else {
-                return { status: 400 };
+                return {
+                    status: false,
+                    code: 500,
+                    message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                    data: null
+                };
             }
         } catch {
-            return { status: 400 };
+            return {
+                status: false,
+                code: 500,
+                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                data: null
+            };
         }
     }
 
@@ -114,7 +154,12 @@ class API {
 
             return res.data;
         } catch {
-            return { status: 400 };
+            return {
+                status: false,
+                code: 500,
+                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
+                data: null
+            };
         }
     }
 };

@@ -40,7 +40,7 @@ uAPI.[version].[features].[category](parameter)
     });
 
 // Example of an API call
-uAPI.V1.Creator.Photooxy.Flaming("Universe+API")
+uAPI.V1.Creator.Photooxy.Flaming("Universe API")
     .then(response => {
         console.log(response);
     })
