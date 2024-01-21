@@ -28,7 +28,13 @@ class universeAPIClient {
     get V1() {
         return {
             AI: {
-                Gemini: require("./v1/AI/Gemini")(this.Api.bind(this))
+                Blackbox: require("./v1/AI/Blackbox")(this.Api.bind(this)),
+                ChatGPT: require("./v1/AI/ChatGPT")(this.Api.bind(this)),
+                Google: require("./v1/AI/Google")(this.Api.bind(this)),
+                Microsoft: require("./v1/AI/Microsoft")(this.Api.bind(this)),
+                StableDiffusion: require("./v1/AI/StableDiffusion")(this.Api.bind(this)),
+                TextToImage: require("./v1/AI/TextToImage")(this.Api.bind(this)),
+                ToAnime: require("./v1/AI/ToAnime")(this.Api.bind(this))
             },
             Creator: {
                 Ephoto: require("./v1/Creator/Ephoto")(this.Api.bind(this)),
@@ -41,7 +47,9 @@ class universeAPIClient {
                 Facebook: require("./v1/Download/Facebook")(this.Api.bind(this)),
                 File: require("./v1/Download/File")(this.Api.bind(this)),
                 Instagram: require("./v1/Download/Instagram")(this.Api.bind(this)),
+                Pinterest: require("./v1/Download/Pinterest")(this.Api.bind(this)),
                 Porn: require("./v1/Download/Porn")(this.Api.bind(this)),
+                Thread: require("./v1/Download/Thread")(this.Api.bind(this)),
                 Tiktok: require("./v1/Download/Tiktok")(this.Api.bind(this)),
                 Twitter: require("./v1/Download/Twitter")(this.Api.bind(this)),
                 Youtube: require("./v1/Download/Youtube")(this.Api.bind(this))

@@ -1,3 +1,3 @@
 export class Twitter {
-    Find: (username: string) => Promise<any>;
+    Model1: (username: string) => Promise<any>;
 }
