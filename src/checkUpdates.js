@@ -1,8 +1,8 @@
-const got = require("got");
+const axios = require("axios").default;
 
 module.exports = async () => {
     try {
-        const packageData = await got("https://registry.npmjs.com/@mgalacyber/universeapi").json();
+        const packageData = await axios("https://registry.npmjs.com/@mgalacyber/universeapi");
         const currentVersion = require("../package.json").version;
         const latestVersion = packageData["dist-tags"].latest;
 
