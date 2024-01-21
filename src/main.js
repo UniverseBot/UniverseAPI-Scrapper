@@ -1,4 +1,4 @@
-const { API } = require("./method");
+const { Method } = require("./method");
 
 /**
  * @class universeAPIClient
@@ -19,7 +19,7 @@ class universeAPIClient {
         if (typeof this.ApiToken !== "string") {
             console.error("Invalid API TOKEN: Token must be a String")
         };
-        return new API(this.BaseUrl, { token: this.ApiToken });
+        return new Method(this.BaseUrl, { token: this.ApiToken });
     };
 
     /**

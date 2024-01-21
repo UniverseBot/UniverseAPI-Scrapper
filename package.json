@@ -1,6 +1,6 @@
 {
   "name": "@mgalacyber/universeapi",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "UniverseAPI Scraper package endpoint",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
