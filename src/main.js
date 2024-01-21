@@ -6,7 +6,7 @@ const { Method } = require("./method");
 class universeAPIClient {
 
     /**
-     * @param {string} token provider api.universebot.space
+     * @param {string} token provider https://api.universebot.space
      */
     constructor(token) {
         this.ApiToken = token ? token : "";
@@ -14,7 +14,7 @@ class universeAPIClient {
     };
     async Api() {
         if (!this.ApiToken) {
-            console.error("Unknown API TOKEN: Please enter your API token")
+            console.error(`Unknown API TOKEN: Please enter your API token or Register first here ${this.BaseUrl}`)
         };
         if (typeof this.ApiToken !== "string") {
             console.error("Invalid API TOKEN: Token must be a String")

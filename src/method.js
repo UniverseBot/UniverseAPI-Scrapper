@@ -20,7 +20,7 @@ class Method {
         try {
             const response = await axios({
                 method,
-                url: `${this.URI}${path}`,
+                url: `${this.URI}/${path}`,
                 headers,
                 params: method === "GET" ? data : undefined,
                 data: method !== "GET" && !(data instanceof FormData) ? data : undefined,
