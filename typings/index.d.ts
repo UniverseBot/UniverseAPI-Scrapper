@@ -8,29 +8,97 @@ declare module "@mgalacyber/universeapi" {
             AI: {
 
                 /**
-                 * AI operations using Google Gemini.
+                 * AI operations using Blackbox.
                  * 
                  * @example
-                 * // Example of using the Pro operation
-                 * const prompt = "Generate creative content";
-                 * const result = await UniverseAPI.AI.Gemini.Pro(prompt);
-                 * console.log(result);
-                 * 
-                 * @example
-                 * // Example of using the Pro Vision (Attach) operation
-                 * const image = "image.jpg";
-                 * const prompt = "Analyze image content";
-                 * const result = await UniverseAPI.AI.Gemini.ProVisionModelAttach(image, prompt);
-                 * console.log(result);
-                 * 
-                 * @example
-                 * // Example of using the Pro Vision (URL) operation
-                 * const image = "https://example.com/image.jpg";
-                 * const prompt = "Analyze image content";
-                 * const result = await UniverseAPI.AI.Gemini.ProVisionModelUrl(image, prompt);
+                 * // Example of using the Model1 operation
+                 * const prompt = "Generate creative website";
+                 * const result = await UniverseAPI.AI.Blackbox.Model1(prompt);
                  * console.log(result);
                  */
-                Gemini: import("./v1/AI/Gemini").Gemini,
+                Blackbox: import("./v1/AI/Blackbox").Blackbox,
+
+                /**
+                 * AI operations using ChatGPT.
+                 * 
+                 * @example
+                 * // Example of using the Model1 operation
+                 * const prompt = "Generate creative content";
+                 * const result = await UniverseAPI.AI.ChatGPT.Model1(prompt);
+                 * console.log(result);
+                 */
+                ChatGPT: import("./v1/AI/ChatGPT").ChatGPT,
+
+                Google: {
+
+                    /**
+                     * AI operations using Google Gemini.
+                     * 
+                     * @example
+                     * // Example of using the Pro operation
+                     * const prompt = "Generate creative content";
+                     * const result = await UniverseAPI.AI.Google.Gemini.Pro(prompt);
+                     * console.log(result);
+                     */
+                    Gemini: import("./v1/AI/Google").Gemini,
+
+                    /**
+                     * AI operations using Google Bard.
+                     * 
+                     * @example
+                     * // Example of using the Pro operation
+                     * const prompt = "Generate creative content";
+                     * const result = await UniverseAPI.AI.Google.Bard.Model1(prompt);
+                     * console.log(result);
+                     */
+                    Bard: import("./v1/AI/Google").Bard,
+                },
+
+                /**
+                 * AI operations using Microsoft.
+                 * 
+                 * @example
+                 * // Example of using the Model1 operation
+                 * const prompt = "Generate creative content";
+                 * const result = await UniverseAPI.AI.Microsoft.Bing.Model1(prompt);
+                 * console.log(result);
+                 */
+                Microsoft: {
+                    Bing: import("./v1/AI/Microsoft").Bing
+                },
+
+                /**
+                 * AI operations using Stable Diffusion.
+                 * 
+                 * @example
+                 * // Example of using the Model1 operation
+                 * const prompt = "Generate creative image";
+                 * const result = await UniverseAPI.AI.StableDiffusion.Model1(prompt);
+                 * console.log(result);
+                 */
+                StableDiffusion: import("./v1/AI/StableDiffusion").StableDiffusion,
+
+                /**
+                 * AI operations using Text 2 Image.
+                 * 
+                 * @example
+                 * // Example of using the Model1 operation
+                 * const prompt = "Generate creative image";
+                 * const result = await UniverseAPI.AI.TextToImage.Model1(prompt);
+                 * console.log(result);
+                 */
+                TextToImage: import("./v1/AI/TextToImage").TextToImage,
+
+                /**
+                 * AI operations using To Anime.
+                 * 
+                 * @example
+                 * // Example of using the Model1 operation
+                 * const prompt = "https://domain.com/image.png";
+                 * const result = await UniverseAPI.AI.ToAnime.Model1(prompt);
+                 * console.log(result);
+                 */
+                ToAnime: import("./v1/AI/ToAnime").TextToImage,
             },
             Creator: {
 
@@ -117,6 +185,16 @@ declare module "@mgalacyber/universeapi" {
                 Instagram: import("./v1/Download/Instagram").Instagram,
 
                 /**
+                 * Download content from Pinterest.
+                 * 
+                 * @example
+                 * const url = "https://pinterest.com/example/post";
+                 * const result = await UniverseAPI.V1.Download.Pinterest.Model1(url);
+                 * console.log(result);
+                 */
+                Pinterest: import("./v1/Download/Pinterest").Pinterest,
+
+                /**
                  * Download adult content from various sources.
                  * 
                  * @example
@@ -125,6 +203,16 @@ declare module "@mgalacyber/universeapi" {
                  * console.log(result);
                  */
                 Porn: import("./v1/Download/Porn").Porn,
+
+                /**
+                 * Download content from Thread.
+                 * 
+                 * @example
+                 * const url = "https://threads.com/example/post";
+                 * const result = await UniverseAPI.V1.Download.Thread.Model1(url);
+                 * console.log(result);
+                 */
+                Thread: import("./v1/Download/Thread").Thread,
 
                 /**
                  * Download content from TikTok.
