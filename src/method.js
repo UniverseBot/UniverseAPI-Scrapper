@@ -1,167 +1,76 @@
 const FormData = require("form-data");
-const Axios = require("axios");
+const got = require("got");
 
-class API {
+class Method {
     constructor(baseURL, options) {
         this.URI = baseURL;
         this.token = options?.token || "";
-        this.create = Axios.create({
-            baseURL: this.URI,
-            timeout: 60000,
-            headers: {
-                Authorization: this.token ? `Bearer ${this.token}` : "",
-            },
-            ...options,
-        });
     }
 
     setToken(token) {
         this.token = token;
-        // Reset the Authorization header on the axios instance
-        this.create.defaults.headers.Authorization = this.token ? `Bearer ${this.token}` : "";
     }
 
-    async get(path = "/", query = {}, options = {}) {
+    async request(method, path = "", data = null, options = {}) {
+        const headers = {
+            Authorization: this.token ? `Bearer ${this.token}` : "",
+            ...options.headers,
+        };
+
         try {
-            const res = await this.create.get(path, {
-                params: new URLSearchParams({
-                    ...query,
-                }),
+            const response = await got[method](`${this.URI}${path}`, {
+                method,
+                headers,
+                searchParams: data,
+                body: data instanceof FormData ? data : undefined,
                 ...options,
             });
 
-            return res.data;
-        } catch {
-            return {
-                status: false,
-                code: 500,
-                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                data: null
-            };
+            return JSON.parse(response.body);
+        } catch (error) {
+            return error;
         }
     }
 
+    async get(path = "/", query = {}, options = {}) {
+        return this.request("get", path, query, options);
+    }
+
     async post(path = "", data = {}, options = {}) {
-        try {
-            if (!!data) {
-                const form = new FormData();
-
-                for (let key in data) {
-                    let valueKey = data[key];
-                    form.append(key, valueKey);
-                }
-
-                const res = await this.create.post(path, form, {
-                    headers: {
-                        ...form.getHeaders(),
-                    },
-                    ...options,
-                });
-
-                return res.data;
-            } else {
-                return {
-                    status: false,
-                    code: 500,
-                    message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                    data: null
-                };
-            }
-        } catch {
-            return {
-                status: false,
-                code: 500,
-                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                data: null
-            };
+        if (data instanceof FormData) {
+            // If data is FormData, send as FormData
+            const res = await this.create.post(path, data, {
+                headers: {
+                    ...form.getHeaders(),
+                    ...options.headers,
+                },
+                ...options,
+            });
+            return res.data;
+        } else {
+            // If data is not FormData, send as JSON
+            const res = await this.create.post(path, data, {
+                ...options,
+            });
+            return res.data;
         }
     }
 
     async put(path = "", data = {}, options = {}) {
-        try {
-            if (!!data) {
-                const res = await this.create.put(path, data, {
-                    ...options,
-                });
-
-                return res.data;
-            } else {
-                return {
-                    status: false,
-                    code: 500,
-                    message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                    data: null
-                };
-            }
-        } catch {
-            return {
-                status: false,
-                code: 500,
-                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                data: null
-            };
-        }
+        return this.request("put", path, data, options);
     }
 
     async delete(path = "", options = {}) {
-        try {
-            const res = await this.create.delete(path, {
-                ...options,
-            });
-
-            return res.data;
-        } catch {
-            return {
-                status: false,
-                code: 500,
-                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                data: null
-            };
-        }
+        return this.request("delete", path, null, options);
     }
 
     async patch(path = "", data = {}, options = {}) {
-        try {
-            if (!!data) {
-                const res = await this.create.patch(path, data, {
-                    ...options,
-                });
-
-                return res.data;
-            } else {
-                return {
-                    status: false,
-                    code: 500,
-                    message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                    data: null
-                };
-            }
-        } catch {
-            return {
-                status: false,
-                code: 500,
-                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                data: null
-            };
-        }
+        return this.request("patch", path, data, options);
     }
 
     async options(path = "", options = {}) {
-        try {
-            const res = await this.create.options(path, {
-                ...options,
-            });
-
-            return res.data;
-        } catch {
-            return {
-                status: false,
-                code: 500,
-                message: "Oops! Cosmic glitch detected. We're on a quick space-time fix. Be right back! 🌌🚀 #500ErrorVoyage",
-                data: null
-            };
-        }
+        return this.request("options", path, null, options);
     }
-};
+}
 
-module.exports = { API };
+module.exports = { Method };
