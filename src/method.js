@@ -1,5 +1,5 @@
+const axios = require("axios");
 const FormData = require("form-data");
-const got = require("got");
 
 class Method {
     constructor(baseURL, options) {
@@ -18,58 +18,46 @@ class Method {
         };
 
         try {
-            const response = await got[method](`${this.URI}${path}`, {
+            const response = await axios({
                 method,
+                url: `${this.URI}${path}`,
                 headers,
-                searchParams: data,
-                body: data instanceof FormData ? data : undefined,
+                params: method === "GET" ? data : undefined,
+                data: method !== "GET" && !(data instanceof FormData) ? data : undefined,
+                ...(data instanceof FormData
+                    ? { headers: { ...headers, ...data.getHeaders() } }
+                    : {}),
                 ...options,
             });
 
-            return JSON.parse(response.body);
+            return response.data;
         } catch (error) {
             return error;
         }
     }
 
-    async get(path = "/", query = {}, options = {}) {
-        return this.request("get", path, query, options);
+    async Get(path = "/", query = {}, options = {}) {
+        return this.request("GET", path, query, options);
     }
 
-    async post(path = "", data = {}, options = {}) {
-        if (data instanceof FormData) {
-            // If data is FormData, send as FormData
-            const res = await this.create.post(path, data, {
-                headers: {
-                    ...form.getHeaders(),
-                    ...options.headers,
-                },
-                ...options,
-            });
-            return res.data;
-        } else {
-            // If data is not FormData, send as JSON
-            const res = await this.create.post(path, data, {
-                ...options,
-            });
-            return res.data;
-        }
+    async Post(path = "", data = {}, options = {}) {
+        return this.request("POST", path, data, options);
     }
 
-    async put(path = "", data = {}, options = {}) {
-        return this.request("put", path, data, options);
+    async Put(path = "", data = {}, options = {}) {
+        return this.request("PUT", path, data, options);
     }
 
-    async delete(path = "", options = {}) {
-        return this.request("delete", path, null, options);
+    async Delete(path = "", options = {}) {
+        return this.request("DELETE", path, null, options);
     }
 
-    async patch(path = "", data = {}, options = {}) {
-        return this.request("patch", path, data, options);
+    async Patch(path = "", data = {}, options = {}) {
+        return this.request("PATCH", path, data, options);
     }
 
-    async options(path = "", options = {}) {
-        return this.request("options", path, null, options);
+    async Options(path = "", options = {}) {
+        return this.request("OPTIONS", path, null, options);
     }
 }
 

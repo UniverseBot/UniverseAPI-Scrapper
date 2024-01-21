@@ -1,6 +1,6 @@
 {
   "name": "@mgalacyber/universeapi",
-  "version": "2.1.0",
+  "version": "2.1.5",
   "description": "UniverseAPI Scraper package endpoint",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
@@ -25,7 +25,7 @@
   },
   "homepage": "https://api.universebot.space",
   "dependencies": {
-    "form-data": "^4.0.0",
-    "got": "^14.0.0"
+    "axios": "^1.6.5",
+    "form-data": "^4.0.0"
   }
 }
