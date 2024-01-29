@@ -1,4 +1,4 @@
 export class Blackbox {
-    Model1: (promt: string) => Promise<any>;
-    Model2v4: (promt: string) => Promise<any>;
+    Model1: (prompt: string) => Promise<any>;
+    Model2v4: (prompt: string) => Promise<any>;
 }
