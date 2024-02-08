@@ -3,7 +3,9 @@
 Full API Implementation inside NodeJS Module
 
 - More info at [`Website`](https://api.universebot.space)
-- Get **API TOKEN** here [`Register`](https://api.universebot.space/auth)
+- Documentation [`Website`](https://docs.universebot.space)
+- Get **API TOKEN** here [`Register`](https://api.universebot.space/auth/login)
+    - _Free trial **premium** for `3 days`._
 - And you can upgrade your api token to premium, you can see more details at [`UPGRADE`](https://api.universebot.space/dashboard/premium)
 
 ## Installation

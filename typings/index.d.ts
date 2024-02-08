@@ -222,7 +222,7 @@ declare module "@mgalacyber/universeapi" {
                  * const result = await UniverseAPI.V1.Download.TikTok.Model1(url);
                  * console.log(result);
                  */
-                Tiktok: import("./v1/Download/Tiktok").TikTok,
+                Tiktok: import("./v1/Download/Tiktok").Tiktok,
 
                 /**
                  * Download content from Twitter.
