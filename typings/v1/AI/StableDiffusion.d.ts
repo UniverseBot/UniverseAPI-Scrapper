@@ -1,3 +1,3 @@
 export class StableDiffusion {
-    Model1: (promt: string) => Promise<any>;
+    Model1: (prompt: string) => Promise<any>;
 }
