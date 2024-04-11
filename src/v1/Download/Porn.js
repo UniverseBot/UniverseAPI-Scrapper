@@ -1,6 +1,18 @@
 module.exports = function(Api) {
     return {
-        XNXX: async (url) => (await Api()).Get("v1/download/porn/xnxx", { url }),
-        XVideos: async (url) => (await Api()).Get("v1/download/porn/xvideos", { url })
+        XNXX: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return (await Api()).Get("v1/download/porn/xnxx", { url });
+            }
+        },
+        XVideos: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return (await Api()).Get("v1/download/porn/xvideos", { url });
+            }
+        }
     }
 };

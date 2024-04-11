@@ -1,74 +1,108 @@
-export class Ephoto {
-    Artistic: (text: string, url: string) => Promise<any>;
-    Diary: (text: string, url: string) => Promise<any>;
-    Cyberpunk: (url: string) => Promise<any>;
-    Billboard: (url: string) => Promise<any>;
-    Fire: (url: string) => Promise<any>;
-    Rain: (url: string) => Promise<any>;
-    Cat: (url: string) => Promise<any>;
-    Ring: (url: string) => Promise<any>;
-    Collage: (url: string) => Promise<any>;
-    Sad: (url: string) => Promise<any>;
-    CinemaGraph: (url: string) => Promise<any>;
-    DiaryFrame: (text: string, url: string) => Promise<any>;
-    Wood: (text1: string, text2: string) => Promise<any>;
-    Television: (text: string) => Promise<any>;
-    Glasses: (text: string) => Promise<any>;
-    Blackpink: (text: string) => Promise<any>;
-    Neonbp: (text: string) => Promise<any>;
-    Juventus: (text: string, number: number) => Promise<any>;
-    CoverPUBG: (text: string) => Promise<any>;
-    GreenBrush: (text: string) => Promise<any>;
-    Eraser: (text: string) => Promise<any>;
-    DragonFire: (text: string) => Promise<any>;
-    Incandescent: (text: string) => Promise<any>;
-    Typography1: (text: string) => Promise<any>;
-    Typography2: (text: string) => Promise<any>;
-    Letters: (text: string) => Promise<any>;
-    Cloth: (text: string) => Promise<any>;
-    Graffiti: (text: string) => Promise<any>;
-    Metals: (text: string) => Promise<any>;
-    BlueNeon: (text: string) => Promise<any>;
-    NightStars: (text: string) => Promise<any>;
-    Cloud: (text: string) => Promise<any>;
-    Caper: (text: string) => Promise<any>;
-    Horror: (text: string) => Promise<any>;
-    Sunlight: (text: string) => Promise<any>;
-    Cake: (text: string) => Promise<any>;
-    Pig: (text: string) => Promise<any>;
-    Hallowen: (text: string) => Promise<any>;
-    LeafGraphy: (text: string) => Promise<any>;
-    Water: (text: string) => Promise<any>;
-    WriteStatus: (text1: string, text2: string) => Promise<any>;
-    Scholes: (text: string, number: number) => Promise<any>;
-    Heated: (text1: string, text2: string) => Promise<any>;
-    Buoys: (text1: string, text2: string) => Promise<any>;
-    QuotesStatus: (text1: string, text2: string) => Promise<any>;
-    NeonBlue: (text: string) => Promise<any>;
-    Foggy: (text: string) => Promise<any>;
-    Crack: (text: string) => Promise<any>;
-    Puppy: (text: string) => Promise<any>;
-    Metals: (text: string) => Promise<any>;
-    PUBGAvatar: (text: string) => Promise<any>;
-    Adventure: (text1: string, text2: string, url: string) => Promise<any>;
-    Notebook: (text1: string, text2: string, url: string) => Promise<any>;
-    WPoster: (text1: string, text2: string, url: string) => Promise<any>;
-    VHS: (url: string) => Promise<any>;
-    Memories: (url: string) => Promise<any>;
-    Glazing: (text: string, url: string) => Promise<any>;
-    Flower: (url: string) => Promise<any>;
-    Heart: (url: string) => Promise<any>;
-    Smoke: (url: string) => Promise<any>;
-    HandleFire: (url: string) => Promise<any>;
-    Specturm: (url: string) => Promise<any>;
-    Painting: (url: string) => Promise<any>;
-    Tiger: (text: string) => Promise<any>;
-    American: (text: string) => Promise<any>;
-    Pencil: (text1: string, text2: string) => Promise<any>;
-    Arrow1: (text: string) => Promise<any>;
-    Arrow2: (text: string) => Promise<any>;
-    Anonymous: (text: string) => Promise<any>;
-    AOV: (text: string) => Promise<any>;
-    Warface: (text: string) => Promise<any>;
-    MobileLegend: (text: string) => Promise<any>;
+import Result from "../../utils/Result";
+
+export namespace TextOnly {
+    export type ModelOptions = "Television" | "Glasses" | "Blackpink" | "Neonbp" | "CoverPUBG" | "GreenBrush" | "Eraser" | "DragonFire"
+        | "Incandescent" | "Typography1" | "Typography2" | "Letters" | "Cloth" | "Graffiti" | "Metals" | "BlueNeon" | "NightStars"
+        | "Cloud" | "Caper" | "Horror" | "Sunlight" | "Cake" | "Pig" | "Hallowen" | "LeafGraphy" | "Water" | "NeonBlue"
+        | "Foggy" | "Crack" | "Puppy" | "PUBGAvatar" | "Tiger" | "American" | "Arrow1" | "Arrow2" | "Anonymous"
+        | "AOV" | "Warface" | "MobileLegend";
+
+    export interface GenerateOptions {
+        model: ModelOptions;
+        text: string;
+    }
+
+    /**
+     * Generate image based on the specified options.
+     * @param {GenerateOptions} options - The options for generating image.
+     * @returns {Promise<Result>} - A promise that resolves with the generated image.
+     */
+    export function Generate(options: GenerateOptions): Promise<Result>;
+}
+
+export namespace UrlOnly {
+    export type ModelOptions = "Cyberpunk" | "Billboard" | "Fire" | "Rain" | "Cat" | "Ring"
+        | "Collage" | "Sad" | "CinemaGraph" | "VHS" | "Memories" | "Flower" | "Heart"
+        | "Smoke" | "HandleFire" | "Specturm" | "Painting";
+
+    export interface GenerateOptions {
+        model: ModelOptions;
+        url: string;
+    }
+
+    /**
+     * Generate image based on the specified options.
+     * @param {GenerateOptions} options - The options for generating image.
+     * @returns {Promise<Result>} - A promise that resolves with the generated image.
+     */
+    export function Generate(options: GenerateOptions): Promise<Result>;
+}
+
+export namespace TextWithUrl {
+    export type ModelOptions = "Artistic" | "Diary" | "DiaryFrame" | "Glazing";
+
+    export interface GenerateOptions {
+        model: ModelOptions;
+        text: string;
+        url: string;
+    }
+
+    /**
+     * Generate image based on the specified options.
+     * @param {GenerateOptions} options - The options for generating image.
+     * @returns {Promise<Result>} - A promise that resolves with the generated image.
+     */
+    export function Generate(options: GenerateOptions): Promise<Result>;
+}
+
+export namespace TextWithNumber {
+    export type ModelOptions = "Juventus" | "Scholes";
+
+    export interface GenerateOptions {
+        model: ModelOptions;
+        text: string;
+        number: number;
+    }
+
+    /**
+     * Generate image based on the specified options.
+     * @param {GenerateOptions} options - The options for generating image.
+     * @returns {Promise<Result>} - A promise that resolves with the generated image.
+     */
+    export function Generate(options: GenerateOptions): Promise<Result>;
+}
+
+export namespace DoubleText {
+    export type ModelOptions = "Wood" | "WriteStatus" | "Heated" | "Buoys" | "QuotesStatus" | "Pencil";
+
+    export interface GenerateOptions {
+        model: ModelOptions;
+        text1: string;
+        text2: string;
+    }
+
+    /**
+     * Generate image based on the specified options.
+     * @param {GenerateOptions} options - The options for generating image.
+     * @returns {Promise<Result>} - A promise that resolves with the generated image.
+     */
+    export function Generate(options: GenerateOptions): Promise<Result>;
+}
+
+export namespace DoubleTextWithUrl {
+    export type ModelOptions = "Adventure" | "Notebook" | "WPoster";
+
+    export interface GenerateOptions {
+        model: ModelOptions;
+        text1: string;
+        text2: string;
+        url: number;
+    }
+
+    /**
+     * Generate image based on the specified options.
+     * @param {GenerateOptions} options - The options for generating image.
+     * @returns {Promise<Result>} - A promise that resolves with the generated image.
+     */
+    export function Generate(options: GenerateOptions): Promise<Result>;
 }

@@ -1,46 +1,64 @@
 module.exports = function(Api) {
     return {
-        Flaming: async (text) => (await Api()).Get("v1/creator/photooxy/flaming", { text }),
-        ShadowSky: async (text) => (await Api()).Get("v1/creator/photooxy/shadow-sky", { text }),
-        Metallic: async (text) => (await Api()).Get("v1/creator/photooxy/metallic", { text }),
-        Naruto: async (text) => (await Api()).Get("v1/creator/photooxy/naruto", { text }),
-        Pubg: async (text1, text2) => (await Api()).Get("v1/creator/photooxy/pubg", { text1, text2 }),
-        UnderGrass: async (text) => (await Api()).Get("v1/creator/photooxy/under-grass", { text }),
-        HarryPotter: async (text) => (await Api()).Get("v1/creator/photooxy/harry-potter", { text }),
-        FlowerTypography: async (text) => (await Api()).Get("v1/creator/photooxy/flower-typography", { text }),
-        PictureOfLove: async (text) => (await Api()).Get("v1/creator/photooxy/picture-of-love", { text }),
-        CoffeeCup: async (text) => (await Api()).Get("v1/creator/photooxy/coffee-cup", { text }),
-        Butterfly: async (text) => (await Api()).Get("v1/creator/photooxy/butterfly", { text }),
-        NightSky: async (text) => (await Api()).Get("v1/creator/photooxy/night-sky", { text }),
-        CarvedWood: async (text) => (await Api()).Get("v1/creator/photooxy/carved-wood", { text }),
-        IlluminatedMetallic: async (text) => (await Api()).Get("v1/creator/photooxy/illuminated-metallic", { text }),
-        SweetCandy: async (text) => (await Api()).Get("v1/creator/photooxy/sweet-candy", { text }),
-        Coffee: async (text) => (await Api()).Get("v1/creator/photooxy/coffee", { text }),
-        QuotedWood: async (text) => (await Api()).Get("v1/creator/photooxy/quoted-wood", { text }),
-        Flame: async (url) => (await Api()).Get("v1/creator/photooxy/flame", { url }),
-        Frame: async (url) => (await Api()).Get("v1/creator/photooxy/frame", { url }),
-        Memory: async (url) => (await Api()).Get("v1/creator/photooxy/memory", { url }),
-        Nature: async (url) => (await Api()).Get("v1/creator/photooxy/nature", { url }),
-        Ripped: async (url) => (await Api()).Get("v1/creator/photooxy/ripped", { url }),
-        Tearing: async (url) => (await Api()).Get("v1/creator/photooxy/tearing", { url }),
-        Iphone: async (url) => (await Api()).Get("v1/creator/photooxy/iphone", { url }),
-        Anaglyph: async (url) => (await Api()).Get("v1/creator/photooxy/anaglyph", { url }),
-        Mirrors: async (url) => (await Api()).Get("v1/creator/photooxy/mirrors", { url }),
-        Shattered: async (url) => (await Api()).Get("v1/creator/photooxy/shattered", { url }),
-        Burning: async (url) => (await Api()).Get("v1/creator/photooxy/burning", { url }),
-        Place: async (url) => (await Api()).Get("v1/creator/photooxy/place", { url }),
-        Toilet: async (url) => (await Api()).Get("v1/creator/photooxy/toilet", { url }),
-        Exposure: async (url) => (await Api()).Get("v1/creator/photooxy/exposure", { url }),
-        SlideText: async (text) => (await Api()).Get("v1/creator/photooxy/slide-text", { text }),
-        Graffiti: async (text) => (await Api()).Get("v1/creator/photooxy/graffiti", { text }),
-        Rainbow: async (text) => (await Api()).Get("v1/creator/photooxy/rainbow", { text }),
-        OceanSea: async (text) => (await Api()).Get("v1/creator/photooxy/ocean-sea", { text }),
-        Romantic: async (text) => (await Api()).Get("v1/creator/photooxy/romantic", { text }),
-        Smoke: async (text) => (await Api()).Get("v1/creator/photooxy/smoke", { text }),
-        Glitch: async (text1, text2) => (await Api()).Get("v1/creator/photooxy/glitch", { text1, text2 }),
-        BurnPaper: async (text) => (await Api()).Get("v1/creator/photooxy/burn-paper", { text }),
-        LoveMessage: async (text) => (await Api()).Get("v1/creator/photooxy/love-message", { text }),
-        LoveText: async (text) => (await Api()).Get("v1/creator/photooxy/love-text", { text }),
-        Shadow: async (text) => (await Api()).Get("v1/creator/photooxy/shadow", { text })
+        TextOnly: {
+            Generate: async function(options) {
+                const { model, text } = options;
+    
+                if (model === "Flaming") return (await Api()).Get("v1/creator/photooxy/flaming", { text });
+                if (model === "ShadowSky") return (await Api()).Get("v1/creator/photooxy/shadow-sky", { text });
+                if (model === "Metallic") return (await Api()).Get("v1/creator/photooxy/metallic", { text });
+                if (model === "Naruto") return (await Api()).Get("v1/creator/photooxy/naruto", { text });
+                if (model === "UnderGrass") return (await Api()).Get("v1/creator/photooxy/under-grass", { text });
+                if (model === "HarryPotter") return (await Api()).Get("v1/creator/photooxy/harry-potter", { text });
+                if (model === "FlowerTypography") return (await Api()).Get("v1/creator/photooxy/flower-typography", { text });
+                if (model === "PictureOfLove") return (await Api()).Get("v1/creator/photooxy/picture-of-love", { text });
+                if (model === "CoffeeCup") return (await Api()).Get("v1/creator/photooxy/coffee-cup", { text });
+                if (model === "Butterfly") return (await Api()).Get("v1/creator/photooxy/butterfly", { text });
+                if (model === "NightSky") return (await Api()).Get("v1/creator/photooxy/night-sky", { text });
+                if (model === "CarvedWood") return (await Api()).Get("v1/creator/photooxy/carved-wood", { text });
+                if (model === "IlluminatedMetallic") return (await Api()).Get("v1/creator/photooxy/illuminated-metallic", { text });
+                if (model === "SweetCandy") return (await Api()).Get("v1/creator/photooxy/sweet-candy", { text });
+                if (model === "Coffee") return (await Api()).Get("v1/creator/photooxy/coffee", { text });
+                if (model === "QuotedWood") return (await Api()).Get("v1/creator/photooxy/quoted-wood", { text });
+                if (model === "SlideText") return (await Api()).Get("v1/creator/photooxy/slide-text", { text });
+                if (model === "Graffiti") return (await Api()).Get("v1/creator/photooxy/graffiti", { text });
+                if (model === "Rainbow") return (await Api()).Get("v1/creator/photooxy/rainbow", { text });
+                if (model === "OceanSea") return (await Api()).Get("v1/creator/photooxy/ocean-sea", { text });
+                if (model === "Romantic") return (await Api()).Get("v1/creator/photooxy/romantic", { text });
+                if (model === "Smoke") return (await Api()).Get("v1/creator/photooxy/smoke", { text });
+                if (model === "BurnPaper") return (await Api()).Get("v1/creator/photooxy/burn-paper", { text });
+                if (model === "LoveMessage") return (await Api()).Get("v1/creator/photooxy/love-message", { text });
+                if (model === "LoveText") return (await Api()).Get("v1/creator/photooxy/love-text", { text });
+                if (model === "Shadow") return (await Api()).Get("v1/creator/photooxy/shadow", { text });
+            }
+        },
+        UrlOnly: {
+            Generate: async function(options) {
+                const { model, url } = options;
+    
+                if (model === "Flame") return (await Api()).Get("v1/creator/photooxy/flame", { url });
+                if (model === "Frame") return (await Api()).Get("v1/creator/photooxy/frame", { url });
+                if (model === "Memory") return (await Api()).Get("v1/creator/photooxy/memory", { url });
+                if (model === "Nature") return (await Api()).Get("v1/creator/photooxy/nature", { url });
+                if (model === "Ripped") return (await Api()).Get("v1/creator/photooxy/ripped", { url });
+                if (model === "Tearing") return (await Api()).Get("v1/creator/photooxy/tearing", { url });
+                if (model === "Iphone") return (await Api()).Get("v1/creator/photooxy/iphone", { url });
+                if (model === "Anaglyph") return (await Api()).Get("v1/creator/photooxy/anaglyph", { url });
+                if (model === "Mirrors") return (await Api()).Get("v1/creator/photooxy/mirrors", { url });
+                if (model === "Shattered") return (await Api()).Get("v1/creator/photooxy/shattered", { url });
+                if (model === "Burning") return (await Api()).Get("v1/creator/photooxy/burning", { url });
+                if (model === "Place") return (await Api()).Get("v1/creator/photooxy/place", { url });
+                if (model === "Toilet") return (await Api()).Get("v1/creator/photooxy/toilet", { url });
+                if (model === "Exposure") return (await Api()).Get("v1/creator/photooxy/exposure", { url });
+            }
+        },
+        DoubleText: {
+            Generate: async function(options) {
+                const { model, text1, text2 } = options;
+    
+                if (model === "Pubg") return (await Api()).Get("v1/creator/photooxy/pubg", { text1, text2 });
+                if (model === "Glitch") return (await Api()).Get("v1/creator/photooxy/glitch", { text1, text2 });
+            }
+        },
     }
 };
