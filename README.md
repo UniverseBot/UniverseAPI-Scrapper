@@ -5,7 +5,7 @@ Full API Implementation inside NodeJS Module
 - More info at [`Website`](https://api.universebot.space)
 - Documentation [`Website`](https://docs.universebot.space)
 - Get **API TOKEN** here [`Register`](https://api.universebot.space/auth/login)
-    - _Free trial **premium** for `3 days`._
+    - _Free trial **premium** for `3 days` for new user._
 - And you can upgrade your api token to premium, you can see more details at [`UPGRADE`](https://api.universebot.space/dashboard/premium)
 
 ## Installation
@@ -17,39 +17,39 @@ yarn:
 ```bash
 $ yarn add @mgalacyber/universeapi
 ```
+pnpm:
+```bash
+$ pnpm add @mgalacyber/universeapi
+```
 
 ## Simple to Use
 ## CommonJs (CJS) syntax
 ```js
-const { universeAPIClient } = require("@mgalacyber/universeapi");
+const { UniverseClient } = require("@mgalacyber/universeapi");
+const uAPI = new UniverseClient("API-TOKEN");
+
+// Example of an API call
+uAPI.V1.AI.OpenAI.GPT.Text({
+    model: "gpt4", // Type of model used
+    version: 1, // Model version of rest api
+    prompt: "What is Galaxy Universe?" // Enter Your prompt here
+
+}).then((result) => console.log(result));
 ```
 ## ECMAScript Modules (ESM) syntax
 ```ts
-import { universeAPIClient } from "@mgalacyber/universeapi";
-```
-
-## Example
-```js
-const uAPI = new universeAPIClient("API-TOKEN");
-
-// How to call the API
-uAPI.[version].[features].[category](parameter)
-    .then(response => {
-        console.log(response);
-    })
-    .catch(error => {
-        console.error(error.message);
-    });
+import { UniverseClient } from "@mgalacyber/universeapi";
+const uAPI = new UniverseClient("API-TOKEN");
 
 // Example of an API call
-uAPI.V1.Creator.Photooxy.Flaming("Universe API")
-    .then(response => {
-        console.log(response);
-    })
-    .catch(error => {
-        console.error(error.message);
-    });
+uAPI.V1.AI.OpenAI.GPT.Text({
+    model: "gpt4", // Type of model used
+    version: 1, // Model version of rest api
+    prompt: "What is Galaxy Universe?" // Enter Your prompt here
+
+}).then((result) => console.log(result));
 ```
 
+
 # Feedback
-If you have any feedback, please reach out to us at support@universebot.space
+If you have any feedback, please reach out to us at `support@universebot.space`

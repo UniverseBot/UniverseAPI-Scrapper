@@ -1,8 +1,13 @@
-export class TextToImage {
-    Model1: (prompt: string) => Promise<any>;
-    Model2: (prompt: string) => Promise<any>;
-    Model3: (prompt: string) => Promise<any>;
-    Model4: (prompt: string) => Promise<any>;
-    Model5: (prompt: string) => Promise<any>;
-    Model6: (prompt: string) => Promise<any>;
+import Result from "../../utils/Result";
+
+export interface GenerateOptions {
+    version: number;
+    prompt: string;
 }
+
+/**
+ * Generate text based on the specified options.
+ * @param {GenerateOptions} options - The options for generating text.
+ * @returns {Promise<Result>} - A promise that resolves with the generated text.
+ */
+export function Generate(options: GenerateOptions): Promise<Result>;

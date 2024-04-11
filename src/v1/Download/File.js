@@ -1,11 +1,53 @@
 module.exports = function(Api) {
     return {
-        SFileMobiSearch: async (query) => (await Api()).Get("v1/download/file/sfilemobisearch", { query }),
-        SFileMobi: async (url) => (await Api()).Get("v1/download/file/sfilemobi", { url }),
-        ZippyShare: async (url) => (await Api()).Get("v1/download/file/zippyshare", { url }),
-        MediaFire: async (url) => (await Api()).Get("v1/download/file/mediafire", { url }),
-        Apkdl: async (url) => (await Api()).Get("v1/download/file/apkdl", { url }),
-        GoogleDrive: async (url) => (await Api()).Get("v1/download/file/gdrive", { url }),
-        Gore: async (url) => (await Api()).Get("v1/download/file/gore", { url })
+        GoogleDrive: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return  (await Api()).Get("v1/download/file/gdrive", { url });
+            }
+        },
+        MediaFire: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return  (await Api()).Get("v1/download/file/mediafire", { url });
+            }
+        },
+        SFileMobiSearch: {
+            Analysis: async function(options) {
+                const { version, query } = options;
+    
+                if (version === 1) return (await Api()).Get("v1/download/file/sfilemobisearch", { query });
+            }
+        },
+        SFileMobiDownload: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return (await Api()).Get("v1/download/file/sfilemobi", { url });
+            }
+        },
+        APKDL: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return (await Api()).Get("v1/download/file/apkdl", { url });
+            }
+        },
+        Gore: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return (await Api()).Get("v1/download/file/gore", { url });
+            }
+        },
+        ZippyShare: {
+            Analysis: async function(options) {
+                const { version, url } = options;
+    
+                if (version === 1) return (await Api()).Get("v1/download/file/zippyshare_deprecated", { url });
+            }
+        }
     }
 };

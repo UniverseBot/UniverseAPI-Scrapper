@@ -1,6 +1,10 @@
 module.exports = function(Api) {
     return {
-        Model1: async (prompt) => (await Api()).Get("v1/ai/blackbox/model1", { prompt }),
-        Model2v4: async (prompt) => (await Api()).Get("v1/ai/blackbox/model2-v4", { prompt }),
+        Text: async function(options) {
+            const { version, prompt } = options;
+
+            if (version === 1) return (await Api()).Get("v1/ai/blackbox/model1", { prompt });
+            if (version === 2) return (await Api()).Get("v1/ai/blackbox/model2", { prompt });
+        }
     }
 };

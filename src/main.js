@@ -1,12 +1,25 @@
 const { Method } = require("./method");
 
 /**
- * @class universeAPIClient
+ * @class UniverseClient
  */
-class universeAPIClient {
-
+class UniverseClient {
     /**
-     * @param {string} token provider https://api.universebot.space
+     * @requires A valid API token is required for accessing the API.
+     * @param {string} token The API token provided by https://api.universebot.space.
+     * @description This function initializes the universeAPI client with the provided token.
+     * @returns {void}
+     * @example
+     * const { UniverseClient } = require("@mgalacyber/universeapi");
+     * const ApiToken = "UniverseAPI.XXXXXXXXXXXXX.XXXXXXXXXXXXX.XXXXXXXXXXXXX.XXXXXXXXXXXXX";
+     * const uAPI = new UniverseClient(ApiToken);
+     * 
+     * uAPI.V1.AI.OpenAI.GPT.Text({
+     *      model: "gpt4", // Type of model used (required)
+     *      version: 1, // Model version of rest api (required)
+     *      prompt: "Hello!" // Enter Your prompt here (required)
+     * 
+     * }).then((result) => console.log(result));
      */
     constructor(token) {
         this.ApiToken = token ? token : "";
@@ -14,10 +27,10 @@ class universeAPIClient {
     };
     async Api() {
         if (!this.ApiToken) {
-            console.error(`Unknown API TOKEN: Please enter your API token or Register first here ${this.BaseUrl}`)
+            console.error(`Unknown API TOKEN: Please enter your API token or Register first here ${this.BaseUrl}/register`);
         };
         if (typeof this.ApiToken !== "string") {
-            console.error("Invalid API TOKEN: Token must be a String")
+            console.error("Invalid API TOKEN: Token must be a String");
         };
         return new Method(this.BaseUrl, { token: this.ApiToken });
     };
@@ -29,7 +42,7 @@ class universeAPIClient {
         return {
             AI: {
                 Blackbox: require("./v1/AI/Blackbox")(this.Api.bind(this)),
-                ChatGPT: require("./v1/AI/ChatGPT")(this.Api.bind(this)),
+                OpenAI: require("./v1/AI/OpenAI")(this.Api.bind(this)),
                 Google: require("./v1/AI/Google")(this.Api.bind(this)),
                 Microsoft: require("./v1/AI/Microsoft")(this.Api.bind(this)),
                 StableDiffusion: require("./v1/AI/StableDiffusion")(this.Api.bind(this)),
@@ -40,6 +53,9 @@ class universeAPIClient {
                 Ephoto: require("./v1/Creator/Ephoto")(this.Api.bind(this)),
                 Photooxy: require("./v1/Creator/Photooxy")(this.Api.bind(this)),
                 Textpro: require("./v1/Creator/Textpro")(this.Api.bind(this))
+            },
+            Detector: {
+                NSFW: require("./v1/Detector/NSFW")(this.Api.bind(this))
             },
             Download: {
                 AIO: require("./v1/Download/AIO")(this.Api.bind(this)),
@@ -55,14 +71,14 @@ class universeAPIClient {
                 Youtube: require("./v1/Download/Youtube")(this.Api.bind(this))
             },
             Game: {
-                SusunKata: require("./v1/Game/SusunKata")(this.Api.bind(this)),
-                Tebakan: require("./v1/Game/Tebakan")(this.Api.bind(this))
+                SusunKata: require("./v1/Games/SusunKata")(this.Api.bind(this)),
+                Tebakan: require("./v1/Games/Tebakan")(this.Api.bind(this))
             },
             Image: {
-                Pinterest: require("./v1/Image/Pinterest")(this.Api.bind(this)),
-                Remini: require("./v1/Image/Remini")(this.Api.bind(this)),
-                Wallpaper: require("./v1/Image/Wallpaper")(this.Api.bind(this)),
-                Wikipedia: require("./v1/Image/Wikipedia")(this.Api.bind(this))
+                Pinterest: require("./v1/Images/Pinterest")(this.Api.bind(this)),
+                Remini: require("./v1/Images/Remini")(this.Api.bind(this)),
+                Wallpaper: require("./v1/Images/Wallpaper")(this.Api.bind(this)),
+                Wikipedia: require("./v1/Images/Wikipedia")(this.Api.bind(this))
             },
             Search: {
                 Google: require("./v1/Search/Google")(this.Api.bind(this))
@@ -89,4 +105,4 @@ class universeAPIClient {
     };
 };
 
-module.exports = { universeAPIClient };
+module.exports = { UniverseClient };
