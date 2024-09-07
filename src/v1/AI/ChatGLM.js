@@ -3,7 +3,7 @@ module.exports = function(Api) {
         Text: async function(options) {
             const { version, prompt } = options;
 
-            return (await Api()).Get(`v1/ai/blackbox/model${version}`, { prompt });
+            return (await Api()).Get(`v1/ai/chatglm/model${version}`, { prompt });
         }
     }
 };

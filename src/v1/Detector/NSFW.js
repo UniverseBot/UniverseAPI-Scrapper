@@ -3,7 +3,7 @@ module.exports = function(Api) {
         Analysis: async function(options) {
             const { version, url } = options;
 
-            if (version === 1) return (await Api()).Get("v1/detector/nsfw/model1", { url });
+            return (await Api()).Get(`v1/detector/nsfw/model${version}`, { url });
         }
     }
 };

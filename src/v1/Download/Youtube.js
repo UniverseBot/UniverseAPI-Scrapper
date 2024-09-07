@@ -1,25 +1,19 @@
 module.exports = function(Api) {
     return {
-        Video: {
-            Analysis: async function(options) {
-                const { version, url } = options;
+        Video: async function(options) {
+            const { version, url } = options;
     
-                if (version === 1) (await Api()).Get("v1/download/youtube/mp4", { url });
-            }
+            return (await Api()).Get(`v1/download/youtube/mp4/model${version}`, { url });
         },
-        Audio: {
-            Analysis: async function(options) {
-                const { version, url } = options;
+        Audio: async function(options) {
+            const { version, url } = options;
     
-                if (version === 1) (await Api()).Get("v1/download/youtube/mp3", { url });
-            }
+            return (await Api()).Get(`v1/download/youtube/mp3/model${version}`, { url });
         },
-        Play: {
-            Analysis: async function(options) {
-                const { version, query } = options;
+        Play: async function(options) {
+            const { version, query } = options;
     
-                if (version === 1) (await Api()).Get("v1/download/youtube/play", { query });
-            }
+            return (await Api()).Get(`v1/download/youtube/play/model${version}`, { query });
         },
     }
 };

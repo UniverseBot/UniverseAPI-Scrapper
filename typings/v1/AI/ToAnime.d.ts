@@ -6,8 +6,9 @@ export interface GenerateOptions {
 }
 
 /**
- * Generate text based on the specified options.
- * @param {GenerateOptions} options - The options for generating text.
- * @returns {Promise<Result>} - A promise that resolves with the generated text.
+ * Generate image based on the specified options.
+ * @param {GenerateOptions} options - The options for generating image.
+ * @returns {Promise<Result>} - A promise that resolves with the generated image.
+ * @deprecated
  */
 export function Generate(options: GenerateOptions): Promise<Result>;

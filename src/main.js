@@ -42,9 +42,13 @@ class UniverseClient {
         return {
             AI: {
                 Blackbox: require("./v1/AI/Blackbox")(this.Api.bind(this)),
-                OpenAI: require("./v1/AI/OpenAI")(this.Api.bind(this)),
+                ChatGLM: require("./v1/AI/ChatGLM")(this.Api.bind(this)),
+                Deepseek: require("./v1/AI/Deepseek")(this.Api.bind(this)),
                 Google: require("./v1/AI/Google")(this.Api.bind(this)),
+                Llama: require("./v1/AI/Llama")(this.Api.bind(this)),
+                Miaxtral: require("./v1/AI/Miaxtral")(this.Api.bind(this)),
                 Microsoft: require("./v1/AI/Microsoft")(this.Api.bind(this)),
+                OpenAI: require("./v1/AI/OpenAI")(this.Api.bind(this)),
                 StableDiffusion: require("./v1/AI/StableDiffusion")(this.Api.bind(this)),
                 TextToImage: require("./v1/AI/TextToImage")(this.Api.bind(this)),
                 ToAnime: require("./v1/AI/ToAnime")(this.Api.bind(this))
@@ -89,6 +93,10 @@ class UniverseClient {
                 NPM: require("./v1/Stalk/NPM")(this.Api.bind(this)),
                 Tiktok: require("./v1/Stalk/Tiktok")(this.Api.bind(this)),
                 Twitter: require("./v1/Stalk/Twitter")(this.Api.bind(this))
+            },
+            Tools: {
+                ShortUrl: require("./v1/Tools/ShortUrl")(this.Api.bind(this)),
+                Visitor: require("./v1/Tools/Visitor")(this.Api.bind(this))
             }
         };
     };
