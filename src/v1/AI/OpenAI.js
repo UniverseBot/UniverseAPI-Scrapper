@@ -4,20 +4,17 @@ module.exports = function(Api) {
             Text: async function(options) {
                 const { model, version, prompt } = options;
 
+                if (model === "gpt3") {
+                    return (await Api()).Get(`v1/ai/openai/gpt3/model${version}`, { prompt });
+                }
+                if (model === "gpt3.5") {
+                    return (await Api()).Get(`v1/ai/openai/gpt3.5/model${version}`, { prompt });
+                }
                 if (model === "gpt3.5-turbo") {
-                    if (version === 1) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model1", { prompt });
-                    if (version === 2) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model2", { prompt });
-                    if (version === 3) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model3", { prompt });
-                    if (version === 4) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model4", { prompt });
-                    if (version === 5) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model5", { prompt });
-                    if (version === 6) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model6", { prompt });
-                    if (version === 7) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model7", { prompt });
-                    if (version === 8) return (await Api()).Get("v1/ai/openai/gpt3.5-turbo/model8", { prompt });
+                    return (await Api()).Get(`v1/ai/openai/gpt3.5-turbo/model${version}`, { prompt });
                 }
                 if (model === "gpt4") {
-                    if (version === 1) return (await Api()).Get("v1/ai/openai/gpt4/model1", { prompt });
-                    if (version === 2) return (await Api()).Get("v1/ai/openai/gpt4/model2", { prompt });
-                    if (version === 3) return (await Api()).Get("v1/ai/openai/gpt4/model3", { prompt });
+                    return (await Api()).Get(`v1/ai/openai/gpt4/model${version}`, { prompt });
                 }
             }
         },
@@ -26,10 +23,37 @@ module.exports = function(Api) {
                 const { model, version, prompt } = options;
 
                 if (model === "dalle-2") {
-                    if (version === 1) return (await Api()).Get("v1/ai/openai/dall-e-2/model1", { prompt });
-                    if (version === 2) return (await Api()).Get("v1/ai/openai/dall-e-2/model2", { prompt });
+                    return (await Api()).Get(`v1/ai/openai/dall-e-2/model${version}`, { prompt });
                 }
             }
-        }
+        },
+        Davinci: {
+            Generate: async function(options) {
+                const { version, prompt } = options;
+
+                return (await Api()).Get(`v1/ai/openai/davinci/model${version}`, { prompt });
+            }
+        },
+        Babbage: {
+            Text: async function(options) {
+                const { version, prompt } = options;
+
+                return (await Api()).Get(`v1/ai/openai/babbage/model${version}`, { prompt });
+            }
+        },
+        ADA: {
+            Text: async function(options) {
+                const { version, prompt } = options;
+
+                return (await Api()).Get(`v1/ai/openai/ada/model${version}`, { prompt });
+            }
+        },
+        Curie: {
+            Text: async function(options) {
+                const { version, prompt } = options;
+
+                return (await Api()).Get(`v1/ai/openai/curie/model${version}`, { prompt });
+            }
+        },
     }
 };

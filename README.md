@@ -1,12 +1,18 @@
+<p align="center">
+    <a href="https://nodei.co/npm/@mgalacyber/universeapi">
+        <img src="https://nodei.co/npm/@mgalacyber/universeapi.png">
+    </a>
+</p>
+
 # UNIVERSE API
 
 Full API Implementation inside NodeJS Module
 
 - More info at [`Website`](https://api.universebot.space)
 - Documentation [`Website`](https://docs.universebot.space)
-- Get **API TOKEN** here [`Register`](https://api.universebot.space/auth/login)
+- Get **API TOKEN** here [`Register`](https://api.universebot.space/register)
     - _Free trial **premium** for `3 days` for new user._
-- And you can upgrade your api token to premium, you can see more details at [`UPGRADE`](https://api.universebot.space/dashboard/premium)
+- And you can upgrade your api token to premium, you can see more details at [`UPGRADE`](https://api.universebot.space/dashboard/pricing)
 
 ## Installation
 npm:

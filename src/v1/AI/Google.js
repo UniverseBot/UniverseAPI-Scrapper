@@ -5,19 +5,20 @@ module.exports = function(Api) {
                 const { model, version, prompt } = options;
 
                 if (model === "1.0-pro") {
-                    if (version === 1) return (await Api()).Get("v1/ai/google/gemini/1.0-pro/text/model1", { prompt });
-                    if (version === 2) return (await Api()).Get("v1/ai/google/gemini/1.0-pro/text/model2", { prompt });
-                    if (version === 3) return (await Api()).Get("v1/ai/google/gemini/1.0-pro/text/model3", { prompt });
+                    return (await Api()).Get(`v1/ai/google/gemini/1.0-pro/text/model${version}`, { prompt });
+                }
+                if (model === "1.5-pro") {
+                    return (await Api()).Get(`v1/ai/google/gemini/1.5-pro/text/model${version}`, { prompt });
                 }
             },
             Vision: async function(options) {
                 const { model, type, version, image, prompt } = options;
 
                 if (model === "1.0-pro" && type === "attacment") {
-                    if (version === 1) return (await Api()).Post("v1/ai/google/gemini/1.1-pro/vision/attach/model1_deprecated", { image, prompt });
+                    return (await Api()).Post(`v1/ai/google/gemini/1.1-pro/vision/attach/model${version}_deprecated`, { image, prompt });
                 }
                 if (model === "1.0-pro" && type === "url") {
-                    if (version === 1) return (await Api()).Get("v1/ai/google/gemini/1.1-pro/vision/url/model1_deprecated", { image, prompt });
+                    return (await Api()).Get(`v1/ai/google/gemini/1.1-pro/vision/url/model${version}_deprecated`, { image, prompt });
                 }
             },
         },
@@ -25,7 +26,14 @@ module.exports = function(Api) {
             Text: async function(options) {
                 const { version, prompt } = options;
 
-                if (version === 1) return (await Api()).Get("v1/ai/google/bard/text/model1_deprecated", { prompt });
+                return (await Api()).Get(`v1/ai/google/bard/text/model${version}`, { prompt });
+            },
+        },
+        Gemma: {
+            Text: async function(options) {
+                const { version, prompt } = options;
+
+                return (await Api()).Get(`v1/ai/google/gemma/model${version}`, { prompt });
             },
         },
     }

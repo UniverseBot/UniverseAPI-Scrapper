@@ -24,9 +24,14 @@ declare module "@mgalacyber/universeapi" {
         public V1: {
             AI: {
                 Blackbox: typeof import("./v1/AI/Blackbox"),
-                OpenAI: typeof import("./v1/AI/OpenAI"),
+                ChatGLM: typeof import("./v1/AI/ChatGLM"),
+                Deepseek: typeof import("./v1/AI/Deepseek"),
                 Google: typeof import("./v1/AI/Google"),
+                Llama: typeof import("./v1/AI/Llama"),
+                Miaxtral: typeof import("./v1/AI/Miaxtral"),
                 Microsoft: typeof import("./v1/AI/Microsoft"),
+                OpenAI: typeof import("./v1/AI/OpenAI"),
+                Qwen: typeof import("./v1/AI/Qwen"),
                 StableDiffusion: typeof import("./v1/AI/StableDiffusion"),
                 TextToImage: typeof import("./v1/AI/TextToImage"),
                 /**
@@ -74,6 +79,10 @@ declare module "@mgalacyber/universeapi" {
                 NPM: import("./v1/Stalk/NPM").NPM,
                 TikTok: typeof import("./v1/Stalk/Tiktok"),
                 Twitter: typeof import("./v1/Stalk/Twitter"),
+            },
+            Tools: {
+                ShortUrl: typeof import("./v1/Tools/ShortUrl"),
+                Visitor: typeof import("./v1/Tools/Visitor"),
             },
         };
 

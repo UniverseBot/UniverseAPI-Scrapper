@@ -3,7 +3,7 @@ module.exports = function(Api) {
         Generate: async function(options) {
             const { version, url } = options;
 
-            if (version === 1) return (await Api()).Get("v1/ai/toanime/model1", { url });
+            return (await Api()).Get(`v1/ai/toanime/model${version}`, { url });
         }
     }
 };

@@ -1,7 +1,7 @@
 import Result from "../../utils/Result";
 
 export namespace GPT {
-    export type ModelOptions = "gpt3.5-turbo" | "gpt4";
+    export type ModelOptions = "gpt3" | "gpt3.5" | "gpt3.5-turbo" | "gpt4";
 
     export interface TextOptions {
         model: ModelOptions;
@@ -32,4 +32,60 @@ export namespace DALLE {
      * @returns {Promise<Result>} - A promise that resolves with the generated image.
      */
     export function Generate(options: Options): Promise<Result>;
+}
+
+export namespace Davinci {
+    export interface Options {
+        version: number;
+        prompt: string;
+    }
+
+    /**
+     * Generate image based on the specified options.
+     * @param {Options} options - The options for generating image.
+     * @returns {Promise<Result>} - A promise that resolves with the generated image.
+     */
+    export function Generate(options: Options): Promise<Result>;
+}
+
+export namespace Babbage {
+    export interface Options {
+        version: number;
+        prompt: string;
+    }
+
+    /**
+     * Generate text based on the specified options.
+     * @param {Options} options - The options for generating text.
+     * @returns {Promise<Result>} - A promise that resolves with the generated text.
+     */
+    export function Text(options: Options): Promise<Result>;
+}
+
+export namespace ADA {
+    export interface Options {
+        version: number;
+        prompt: string;
+    }
+
+    /**
+     * Generate text based on the specified options.
+     * @param {Options} options - The options for generating text.
+     * @returns {Promise<Result>} - A promise that resolves with the generated text.
+     */
+    export function Text(options: Options): Promise<Result>;
+}
+
+export namespace Curie {
+    export interface Options {
+        version: number;
+        prompt: string;
+    }
+
+    /**
+     * Generate text based on the specified options.
+     * @param {Options} options - The options for generating text.
+     * @returns {Promise<Result>} - A promise that resolves with the generated text.
+     */
+    export function Text(options: Options): Promise<Result>;
 }
