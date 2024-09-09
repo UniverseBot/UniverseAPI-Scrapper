@@ -32,7 +32,18 @@ class Method {
 
             return getResponse.data;
         } catch (error) {
-            return error.response.data;
+            if (error && error.response) {
+                return error.response.data;
+            } else {
+                return {
+                    status: false,
+                    code: 500,
+                    speed: "0ms",
+                    author: "@GXD",
+                    message: error.message || "An unknown error occurred",
+                    data: null
+                }
+            }
         }
     }
 

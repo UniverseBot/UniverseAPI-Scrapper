@@ -1,6 +1,6 @@
 {
   "name": "@mgalacyber/universeapi",
-  "version": "3.4.5",
+  "version": "3.4.8",
   "description": "UniverseAPI Wrapper package endpoint",
   "main": "index.js",
   "typings": "./typings/index.d.ts",
