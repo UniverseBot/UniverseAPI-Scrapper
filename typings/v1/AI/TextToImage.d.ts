@@ -3,6 +3,7 @@ import Result from "../../utils/Result";
 export interface GenerateOptions {
     version: number;
     prompt: string;
+    model?: string;
 }
 
 /**
